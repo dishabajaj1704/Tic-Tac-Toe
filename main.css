@@ -36,14 +36,16 @@ body {
 
 .font-size {
 	font-family: monospace;
-	font-size: 5rem;
-	color: red;
-
-
+	font-size: 5vw;
 }
+
 
 .font-o {
 	color: white;
+}
+
+.font-x {
+	color: red;
 }
 
 .cursor-pointer {
