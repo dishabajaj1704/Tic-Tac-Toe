@@ -1,3 +1,6 @@
+tiles = document.querySelector('#row');
+let length = tiles.children.length;
+console.log(tiles.children);
 tile1 = document.querySelector('#tile1');
 tile2 = document.querySelector('#tile2');
 tile3 = document.querySelector('#tile3');
@@ -12,6 +15,8 @@ looser = document.querySelector('#looser');
 tie = document.querySelector('#tie');
 modal = document.querySelector('#modal');
 box = document.querySelectorAll('.box');
+let fontx = 'font-x';
+let fonto = 'font-o';
 startStopBtn = document.querySelector('#startStop');
 let win = false;
 let isPlaying = false;
@@ -43,6 +48,16 @@ function startGame() {
     addTileListeners();
     hide(modal);
     setText(startStopBtn, 'Stop Game');
+    for (let i = 0; i < length; i++) {
+        if (tiles.children[i].classList.contains(fontx)) {
+            tiles.children[i].classList.remove(fontx);
+        }
+
+        else if (tiles.children[i].classList.contains(fonto)) {
+            tiles.children[i].classList.remove(fonto);
+        }
+    }
+
 }
 
 
@@ -184,13 +199,15 @@ function WinOrLose(evt) {
 
 function whatToShow(evt) {
     if (x) {
+        evt.target.classList.add('font-x');
         setText(evt.target, "X")
         evt.target.removeEventListener('click', WinOrLose);
         x = false;
     }
     else {
+
+        evt.target.classList.add('font-o');
         setText(evt.target, "O");
-        evt.target.classList.add('font-o')
         evt.target.removeEventListener('click', WinOrLose);
         x = true;
     }
